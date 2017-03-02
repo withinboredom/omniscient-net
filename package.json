@@ -1,0 +1,16 @@
+{
+  "name": "soaring-octopus",
+  "version": "0.0.1",
+  "description": "none",
+  "main": "index.js",
+  "repository": "git@github.com:withinboredom/soaring-octopus.git",
+  "author": "Rob Landers <landers.robert@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "diff": "^3.2.0",
+    "rethinkdbdash": "^2.3.28"
+  }
+}
