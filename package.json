@@ -13,7 +13,6 @@
     "uuid": "^3.0.1"
   },
   "devDependencies": {
-    "diff": "^3.2.0",
     "jest": "^19.0.2",
     "rethinkdbdash": "^2.3.28"
   }

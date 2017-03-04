@@ -1,0 +1,42 @@
+{
+  "settings": {
+    "defaultTool": "native"
+  },
+  "tasks": [
+    {
+      "name": "test",
+      "tasks": [
+        {
+          "name": "start-deps",
+          "exec": {
+            "native": {
+              "command": [
+                "docker-compose up -d"
+              ]
+            }
+          }
+        },
+        {
+          "name": "run",
+          "exec": {
+            "native": {
+              "command": [
+                "npm test -- --colors --forceExit --runInBand --bail --coverage"
+              ]
+            }
+          }
+        },
+        {
+          "name": "stop-deps",
+          "exec": {
+            "native": {
+              "command": [
+                "docker-compose down -v"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
