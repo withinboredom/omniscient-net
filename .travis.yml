@@ -8,6 +8,7 @@ node_js: node
 before_install:
 - curl -sSL https://get.docker.com/ | sudo sh
 - curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` | sudo tee /usr/local/bin/docker-compose > /dev/null && sudo chmod +x /usr/local/bin/docker-compose
+- curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.21.3
 install:
 - npm install -g tyche codecov
 script:
