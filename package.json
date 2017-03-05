@@ -1,9 +1,9 @@
 {
-  "name": "soaring-octopus",
+  "name": "omniscient-net",
   "version": "0.0.1",
   "description": "none",
   "main": "index.js",
-  "repository": "git@github.com:withinboredom/soaring-octopus.git",
+  "repository": "git@github.com:withinboredom/omniscient-net.git",
   "author": "Rob Landers <landers.robert@gmail.com>",
   "license": "GPL-3.0",
   "scripts": {
