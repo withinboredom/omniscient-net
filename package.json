@@ -15,5 +15,9 @@
   "devDependencies": {
     "jest": "^19.0.2",
     "rethinkdbdash": "^2.3.28"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }

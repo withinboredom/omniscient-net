@@ -9,7 +9,7 @@ before_install:
 - curl -sSL https://get.docker.com/ | sudo sh
 - curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` | sudo tee /usr/local/bin/docker-compose > /dev/null && sudo chmod +x /usr/local/bin/docker-compose
 install:
-- npm install -g tyche
+- npm install -g tyche codecov
 script:
 - tyche test
 deploy:

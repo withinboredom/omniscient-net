@@ -27,7 +27,7 @@
           "exec": {
             "native": {
               "command": [
-                "npm test -- --colors --forceExit --runInBand --bail --coverage"
+                "npm test -- --colors --forceExit --runInBand --bail --coverage && codecov"
               ]
             }
           }
