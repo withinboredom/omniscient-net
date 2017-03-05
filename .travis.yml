@@ -7,7 +7,9 @@ language: node_js
 node_js: node
 before_install:
 - curl -sSL https://get.docker.com/ | sudo sh
-- curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` | sudo tee /usr/local/bin/docker-compose > /dev/null && sudo chmod +x /usr/local/bin/docker-compose
+- curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname
+  -s`-`uname -m` | sudo tee /usr/local/bin/docker-compose > /dev/null && sudo chmod
+  +x /usr/local/bin/docker-compose
 - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.21.3
 install:
 - npm install -g tyche codecov
@@ -15,9 +17,10 @@ script:
 - yarn
 - tyche test
 deploy:
-  provider: releases
+  provider: npm
+  email: landers.robert@gmail.com
   api_key:
-    secure: GXBHm8vkLMNpV61wvw2fnd7fo/VCGOBLC6Ffak3XYA6QQhkdQ2GdCRoWC9VG6rEeim1qCbl0Nw1vkxMikXiyMGkrLsCFj8sf7K5xeUPbxKasSq2qq9EUxtLqaN10gZ3mWsRDdnrdV8+5Dvtljg4jebCHfKSWhS4fsDBMDL0Fb7bHswpxcTLzUzhS4XEM9bg9FB2IqtskYu7TN1QcmnPeBx8kOzTvmnrD2iBRttQkJc7wfbB4ECJKzbTYbi3Kr9NM8HLbOWf7iiLMfMNOpOGtn9QZs3eeOYIitXevmFYFEkFYFGsOcl4Jma4XKGnEgfC5rnMeRDJZ+7XqECfVIaZt+JABurnhzDseOf/R9zqO/YXUOE2g1Y3N3zTJFbP633VUb5Oy2E197L2tWTMTDFkKZMe/FFU4/LJxhd9H2V+/kCzuH7LqtrfnvxGcJjFPgWOSA1gZZpS//uYE4Rs9dSQeaKxQ5hpISZmrm6ieGAY/AO1mC6SYbn7S8ttD2gWX3QJvVVi3/rlCf4ODyDIsbW5vqqp5beFoPHkjmCRyR5XceoJ4cTXQPAMtGLx6dSTRcBIF3XloYd1ODG2ugQ/E24/5MYDo70TqiUpjMyI9DVcJCk06aRmBWdPJ9KN0BSLAfXsqoR2Ig0pNs+I1DR6eKN1bFYHaAEZVdw/B7c2e4OFLoLo=
+    secure: YREgjiM/VIc1PbIFd6OYsNGI7Gwfeqa3RZxIaKYZF1Y+is7UW48wLQ1FitpJ2dOOkU2dHWgPBoGJOqQWKUNwxRHnSn4kBdMRUXam4PttdOzBGxJukBICPqhAaXxoOkxCsBv2gkKYbMmknzi4YOYxb7Suop5H2HN+Qlh4Nqh+BaGHVb8izleGLzxaETwmiSN7lQ3reLGZCDB/ztH4Pd/gK0oxHip4ISklzVtyaUbuXZjvh8hzWakS7F3urC6sHU6/wOcuZ7Vq+tyqgFSwFKIsiWpvRQ/9WFZw006Kb1NeWD9/kswBldUuWv33yv+0theaSv6HueLU0hw5Yf/QR2Surq6OuPJF2j6tJua5yRXKCRvBu3D9IEGq+4qe9IyOUOrqSzMMvyXKAaawu1AV9SXPdISLb9C74A8XSOn2UOF1eXSNf0lIqQCQaK7ZXvtpUYgjQNnL8yJreHkxNchyeHc6gCdIdq1DyncGu+uMxRZ9IX8Nzy8IAmNcaM4VPfZNWQ/NnuDy/UM1/jztLvnyeaZarQGdcIT5aoOW1aOlz2B7w4A0xuWNYRRendgprtKCNE/C4OMIrPXsdtETreKfuBQSCk7Uhj4+KEzCC9bpzun/Wx1zRzMn2g/OXH+4vC0FFnqHhNNM5C+HkX+NG/RFLLK6SRG3h8mv4yabOBs2uuZi7mo=
   on:
-    repo: withinboredom/omniscient-net
     tags: true
+    repo: withinboredom/omniscient-net
