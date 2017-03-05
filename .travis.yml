@@ -12,6 +12,7 @@ before_install:
 install:
 - npm install -g tyche codecov
 script:
+- yarn
 - tyche test
 deploy:
   provider: releases
