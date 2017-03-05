@@ -4,6 +4,12 @@
   },
   "tasks": [
     {
+      "name": "bump",
+      "tasks": [
+        "test"
+      ]
+    },
+    {
       "name": "test",
       "tasks": [
         {
