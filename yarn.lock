@@ -469,7 +469,7 @@ detect-indent@^4.0.0:
   dependencies:
     repeating "^2.0.0"
 
-diff@^3.0.0, diff@^3.2.0:
+diff@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
@@ -1177,6 +1177,10 @@ js-yaml@^3.7.0:
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
+
+jsdoc-strip-async-await@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/jsdoc-strip-async-await/-/jsdoc-strip-async-await-0.1.0.tgz#7a755a2b7527da2c76e2163a455636183456152a"
 
 jsdom@^9.11.0:
   version "9.11.0"

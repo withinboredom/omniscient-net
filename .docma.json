@@ -1,0 +1,19 @@
+{
+  "src": [
+    "./lib/*.js",
+    {
+      "guide": "./readme.md"
+    }
+  ],
+  "jsdoc": {
+    "plugins": [
+      "node_modules/jsdoc-strip-async-await"
+    ]
+  },
+  "dest": "./docs",
+  "app": {
+    "title": "Omniscient Net",
+    "routing": "query",
+    "entrance": "content:guide"
+  }
+}
