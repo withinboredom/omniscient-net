@@ -1,7 +1,7 @@
 # Omniscient Net
 
 [![Build Status](https://travis-ci.org/withinboredom/omniscient-net.svg?branch=master)](https://travis-ci.org/withinboredom/omniscient-net) [![codecov](https://codecov.io/gh/withinboredom/omniscient-net/branch/master/graph/badge.svg)](https://codecov.io/gh/withinboredom/omniscient-net)
-
+[![npm](https://img.shields.io/npm/v/omniscient-net.svg)]() [![npm](https://img.shields.io/npm/l/omniscient-net.svg)]() [![Maintenance](https://img.shields.io/maintenance/yes/2017.svg)]()
 
 A simple event based / actor model that pretty
 much does what it wants.
