@@ -1,0 +1,91 @@
+
+<html><head></head><body><h1 id="omniscient-net">Omniscient Net</h1>
+<hr />
+<p><a href="https://travis-ci.org/withinboredom/omniscient-net"><img src="https://travis-ci.org/withinboredom/omniscient-net.svg?branch=master" alt="Build Status"></a> <a href="https://codecov.io/gh/withinboredom/omniscient-net"><img src="https://codecov.io/gh/withinboredom/omniscient-net/branch/master/graph/badge.svg" alt="codecov"></a>
+<a href=""><img src="https://img.shields.io/npm/v/omniscient-net.svg" alt="npm"></a> <a href=""><img src="https://img.shields.io/npm/l/omniscient-net.svg" alt="npm"></a> <a href=""><img src="https://img.shields.io/maintenance/yes/2017.svg" alt="Maintenance"></a></p>
+<p>A simple event based / actor model that pretty
+much does what it wants.</p>
+<h2 id="requirements-">Requirements:</h2>
+<ul>
+<li>node v7.7.1 or higher</li>
+</ul>
+<h2 id="optional-requirements">Optional requirements</h2>
+<ul>
+<li>rethinkdb if you want to use rethinkdb storage driver</li>
+</ul>
+<h1 id="about-this-library">About this library</h1>
+<hr />
+<p>Omniscient Net is an attempt to make distributed
+ objects simple and event based.</p>
+<p>For example, say we have an api, called the 
+ "smart-api". We need to perform an action, have
+ it only occur once, and store the result as
+ part of the state.</p>
+<p>It might look something like:</p>
+<pre><code class="lang-js">import { Actor } from 'omniscient-net';
+import api from 'smart-api';
+
+class SmartActor extends Actor {
+    async DoSomething(smart) {
+        const response = await api.get(smart);
+        await this.Fire('did_smart_thing', response);
+    }
+
+    async did_smart_thing(data) {
+        this.state.amSmart = data.isSmart;
+    }
+}
+</code></pre>
+<p>There's two functions to this class:</p>
+<ul>
+<li>DoSomething</li>
+<li>did_smart_thing</li>
+</ul>
+<p>When you call DoSomething, it will perform a
+side effect on the universe, and "fire" the
+result. Every running instance of <code>SmartActor</code>
+will instantly receive the result and update
+it's internal state.</p>
+<p>So, how to use <code>SmartActor</code>? Here's an example:</p>
+<pre><code class="lang-js">import { RqlStorage } from 'omniscient-net';
+import SmartActor from './SmartActor';
+
+const storage = new RqlStorage('host', 'db', 'port');
+const actor = new SmartActor('id', storage);
+actor
+    .Load()
+    .then(() =&gt; actor.DoSomething('am i smart?'))
+    .then(() =&gt; actor.Destroy());
+</code></pre>
+<p>Any running instance will automatically have
+<code>did_smart_thing</code> called on it, as well as any
+future instances with the same id, when <code>Load()</code>
+is called.</p>
+<p>Writing tests with jest (or jasmine) is incredibly simple:</p>
+<pre><code class="lang-js">import {Given} from 'omniscient-net';
+import SmartActor from './SmartActor';
+
+describe('a smart actor', () =&gt; {
+    it('figures out if its smart', async () =&gt; {
+        const test = await Given(SmartActor, [])
+            .When('DoSomething', 'am i smart?')
+            .Then([
+                {
+                    name: 'did_smart_thing',
+                    data: {
+                        isSmart: false
+                    }
+                }
+            ]);
+        await test.And({
+            amSmart: false
+        });
+    });
+});
+</code></pre>
+<p>This is simple event sourcing.</p>
+<h1 id="api">API</h1>
+<hr />
+<h2 id="memstorage">Memstorage</h2>
+<p>An in-memory storage adapter.</p>
+</body></html>
