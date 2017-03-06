@@ -1,5 +1,7 @@
 # Omniscient Net
 
+[![Build Status](https://travis-ci.org/withinboredom/omniscient-net.svg?branch=master)](https://travis-ci.org/withinboredom/omniscient-net)
+
 A simple event based / actor model that pretty
 much does what it wants.
 
