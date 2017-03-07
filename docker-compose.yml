@@ -6,3 +6,9 @@ services:
       - '8000:8080'
       - '28015:28015'
     command: rethinkdb --bind all
+  docs:
+    image: httpd
+    volumes:
+      - ./docs:/usr/local/apache2/htdocs/omniscient-net
+    ports:
+      - '80:80'

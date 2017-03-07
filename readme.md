@@ -95,10 +95,3 @@ describe('a smart actor', () => {
 ```
 
 This is simple event sourcing.
-
-# API
-
-## Memstorage
-
-An in-memory storage adapter.
-
