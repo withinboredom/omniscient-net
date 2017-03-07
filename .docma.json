@@ -1,21 +1,62 @@
 {
   "src": [
     "./lib/*.js",
-    {
-      "guide": "./readme.md"
-    }
+    "./readme.md",
+    {"testing": "./jest.md"}
   ],
   "jsdoc": {
     "plugins": [
-      "node_modules/jsdoc-strip-async-await"
-    ]
+      "node_modules/jsdoc-strip-async-await",
+      "plugins/markdown"
+    ],
+    "hierarchy": true,
+    "sort": "grouped",
+    "package": true
   },
   "dest": "./docs",
   "app": {
     "title": "Omniscient Net",
-    "entrance": "content:guide",
+    "entrance": "content:readme",
     "server": "github",
-    "base": "/omniscient-net",
-    "routing": "path"
+    "routing": "path",
+    "base": "/omniscient-net"
+  },
+  "template": {
+    "options": {
+      "title": "Omniscient Net",
+      "sidebar": true,
+      "navbar": true,
+      "navItems": [
+        {
+          "label": "Documentation",
+          "href": "/omniscient-net/api",
+          "iconClass": "ico-md ico-book",
+          "items": [
+            {
+              "label": "Actors",
+              "href": "/omniscient-net/api#Actor"
+            },
+            {
+              "label": "Storage",
+              "href": "/omniscient-net/api#Storage"
+            },
+            {
+              "label": "RqlStorage",
+              "href": "/omniscient-net/api#RqlStorage"
+            }
+          ]
+        },
+        {
+          "label": "Testing",
+          "href": "/omniscient-net/testing",
+          "iconClass": "ico-md ico-flask"
+        },
+        {
+          "label": "Github",
+          "href": "https://github.com/withinboredom/omniscient-net",
+          "iconClass": "ico-md ico-github"
+        }
+      ]
+    }
   }
 }

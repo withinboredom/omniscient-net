@@ -1,0 +1,35 @@
+
+<html><head></head><body><h1 id="using-with-jest">Using with jest</h1>
+<hr />
+<p>To get started, create a jest test and import your Actor class you'd like to test, as well as the <code>Given</code> function:</p>
+<pre><code class="lang-js">import { MyActor } from '../MyActor';
+import { Given } from 'omniscient-net';
+
+describe('MyActor' () =&gt; {});
+</code></pre>
+<h2 id="create-a-test">Create a test</h2>
+<p>First, try and decide which event you want to test. Let's test that calling "DoLogin" will fire the "user logged in" event and it set the state correctly:</p>
+<pre><code class="lang-js">import { MyActor } from '../MyActor';
+import { Given } from 'omniscient-net';
+
+describe('MyActor' () =&gt; {
+  it('fires the login event', async() =&gt; {
+    // give a class to instantiate and a list of previous events to apply
+    const test = await Given( MyActor, [] )
+        // call the function 'DoLogin' with the singular parameter, 'password'
+      .When( 'DoLogin', 'password' )
+        // assert that 'user logged in' event fires
+        .Then( [
+          {
+          name: 'user logged in'
+          data: {}
+          }
+      ]);
+    // assert the final state
+    test.And({
+      activeSessions: [{ ip: '127.0.0.1' }]
+    });
+  });
+});
+</code></pre>
+</body></html>
