@@ -13,7 +13,9 @@
   "dest": "./docs",
   "app": {
     "title": "Omniscient Net",
-    "routing": "query",
-    "entrance": "content:guide"
+    "entrance": "content:guide",
+    "server": "github",
+    "base": "/omniscient-net",
+    "routing": "path"
   }
 }
